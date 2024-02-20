@@ -1,0 +1,45 @@
+{
+  "name": "mini-js-parser",
+  "version": "0.0.0",
+  "description": "Mini javaScript parser inspired by acorn.",
+  "author": "haijie-x",
+  "keywords": [],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "homepage": "https://github.com/haijie-x/mini-js-parser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haijie-x/mini-js-parser.git"
+  },
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "tsx ./src/index.ts",
+    "test": "vitest run",
+    "lint": "biome lint ./src",
+    "format": "biome format --write ./src",
+    "build": "tsc",
+    "prepublishOnly": "pnpm test && pnpm lint && pnpm format && pnpm build",
+    "release": "bumpp && npm publish"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^20.5.1",
+    "tsx": "^3.12.1",
+    "typescript": "^5.0.4",
+    "vitest": "^1.2.2"
+  }
+}
